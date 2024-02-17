@@ -31,4 +31,9 @@ async function example() {
   //close the browser
   await driver.quit();
 }
-example();
+
+describe("first test", () => {
+  it("successfully first test", async () => {
+    await example();
+  });
+});
