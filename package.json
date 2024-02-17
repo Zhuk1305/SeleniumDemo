@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --no-timeouts"
+    "test": "mocha --no-timeouts",
+    "test:parallel": "mocha --no-timeouts --parallel"
   },
   "author": "Zhuk1305",
   "license": "ISC",
