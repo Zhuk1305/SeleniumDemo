@@ -1,13 +1,15 @@
 const { Builder, By, Key } = require("selenium-webdriver");
 const assert = require("assert");
+var should = require("chai").should();
+
 async function example() {
-  // launch the browser
+  //launch the browser
   let driver = await new Builder().forBrowser("chrome").build();
 
-  // navigate t our application
+  //navigate t our application
   await driver.get("https://lambdatest.github.io/sample-todo-app/");
 
-  // add a todo
+  //add a todo
   await driver
     .findElement(By.id("sampletodotext"))
     .sendKeys("Learn Selenium", Key.RETURN);
@@ -20,8 +22,13 @@ async function example() {
       return value;
     });
 
+  //assert using node assertion
   assert.strictEqual(todoText, "Learn Selenium");
-  // close the browser
+
+  //assert using chai
+  todoText.should.equal("Learn Chai"); // get error!!! if we change text to "Learn Selenium" is ok
+
+  //close the browser
   await driver.quit();
 }
 example();
